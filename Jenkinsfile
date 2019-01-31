@@ -5,6 +5,12 @@ node {
     stage('build') {
       println('so far so good...')
     }
+    stage('Building image') {
+      println(BUILD_NUMBER)
+        script {
+          sudo docker.build
+        }
+    }
     stage('test') {
       println('A test has failed!')
       sh 'exit 1'
